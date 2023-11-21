@@ -1,29 +1,36 @@
 {
-  "name": "reactjs-tailwindcss-ecommerce",
+  "name": "ecommerce-course",
   "version": "0.1.0",
   "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.1",
+    "axios": "^1.6.2",
+    "bootstrap": "^5.3.2",
+    "multiselect-react-dropdown": "^2.0.25",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.9.1",
+    "react-dom": "^18.2.0",
+    "react-image-gallery": "^1.3.0",
+    "react-paginate": "^8.2.0",
+    "react-rating-stars-component": "^2.2.0",
+    "react-redux": "^8.1.3",
+    "react-router-dom": "^6.19.0",
+    "react-scripts": "5.0.1",
+    "react-toastify": "^9.1.3",
+    "redux": "^4.2.1",
+    "@redux-devtools/extension": "^3.2.6",
+    "redux-thunk": "^2.4.2",
+    "unop-react-dropdown": "^0.2.3",
+    "web-vitals": "^3.5.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "dependencies": {
-    "@testing-library/jest-dom": "^6.1.4",
-    "@testing-library/react": "^14.0.0",
-    "@testing-library/user-event": "^14.5.1",
-    "@types/jest": "^29.5.6",
-    "@types/node": "^20.8.7",
-    "@types/react": "^18.2.29",
-    "@types/react-dom": "^18.2.13",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^5.2.2",
-    "web-vitals": "^3.5.0"
-  },
-  "devDependencies": {
-    "tailwindcss": "^3.3.3"
+    "eject": "react-scripts eject",
+        "upgrade": "ncu && ncu -u && npm install --force"
   },
   "eslintConfig": {
     "extends": [
