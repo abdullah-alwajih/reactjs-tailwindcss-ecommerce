@@ -1,9 +1,9 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import CategoryHeader from '../../features/category/view/components/CategoryHeader'
-import CardProductsContainer from '../../Components/Products/CardProductsContainer'
-import ProductDetalis from '../../Components/Products/ProductDetalis'
-import RateContainer from '../../Components/Rate/RateContainer'
+import CategoryHeader from '../../../category/view/components/CategoryHeader'
+import CardProductsContainer from '../../../../Components/Products/CardProductsContainer'
+import ProductDetalis from '../../../../Components/Products/ProductDetalis'
+import RateContainer from '../../../../Components/Rate/RateContainer'
 
 const ProductDetalisPage = () => {
     return (

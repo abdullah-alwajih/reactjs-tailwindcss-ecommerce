@@ -1,10 +1,10 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import CategoryHeader from '../../features/category/view/components/CategoryHeader'
-import CardProductsContainer from '../../Components/Products/CardProductsContainer'
-import Pagination from '../../Components/Uitily/Pagination'
-import SearchCountResult from '../../Components/Uitily/SearchCountResult'
-import SideFilter from '../../Components/Uitily/SideFilter'
+import CategoryHeader from '../../../category/view/components/CategoryHeader'
+import CardProductsContainer from '../../../../Components/Products/CardProductsContainer'
+import Pagination from '../../../../Components/Uitily/Pagination'
+import SearchCountResult from '../../../../Components/Uitily/SearchCountResult'
+import SideFilter from '../../../../Components/Uitily/SideFilter'
 
 const ShopProductsPage = () => {
     return (

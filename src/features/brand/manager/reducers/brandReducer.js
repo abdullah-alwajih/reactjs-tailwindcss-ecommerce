@@ -1,30 +1,30 @@
+
 import ACTIONS_TYPES from "../../../../core/manager/actionsTypes";
 
 const initial = {
-    category: [],
+    brand: [],
     loading: true,
 }
-
-const categoryReducer = (state = initial, action) => {
+const brandReducer = (state = initial, action) => {
     switch (action.type) {
-        case ACTIONS_TYPES.CATEGORY_GET_LIST:
+        case ACTIONS_TYPES.BRAND_GET_LIST:
             return {
                 ...state,
-                category: action.payload,
+                brand: action.payload,
                 loading: false,
             }
-        case ACTIONS_TYPES.CATEGORY_CREATE:
+        case ACTIONS_TYPES.BRAND_CREATE:
             return {
-                category: action.payload,
+                brand: action.payload,
                 loading: false
             }
         case ACTIONS_TYPES.GET_ERROR:
             return {
                 loading: true,
-                category: action.payload,
+                brand: action.payload,
             }
         default:
             return state;
     }
 }
-export default categoryReducer
+export default brandReducer

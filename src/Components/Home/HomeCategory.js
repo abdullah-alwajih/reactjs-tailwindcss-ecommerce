@@ -1,31 +1,27 @@
-import React, { useEffect } from 'react'
-import { Container, Row, Spinner } from 'react-bootstrap';
+import React from 'react'
+import {Container, Row, Spinner} from 'react-bootstrap';
 import SubTiltle from '../Uitily/SubTiltle'
 import CategoryCard from '../../features/category/view/components/CategoryCard';
-import UseHomeCategory from '../../features/category/manager/hooks/useHomeCategory'
+import useCategoryList from "../../features/category/manager/hooks/useCategoryList";
 
 const HomeCategory = () => {
-
-    const [category, loading, colors] = UseHomeCategory();
-
-    return (
-        <Container>
-            <SubTiltle title="التصنيفات" btntitle="المزيد" pathText="/allcategory" />
-            <Row className='my-2 d-flex justify-content-between'>
-                {
-                    loading === false ? (
-                        category.data ? (
-                            category.data.slice(0, 5).map((item, index) => {
-                                return (<CategoryCard key={index} title={item.name} img={item.image} background={colors[index]} />)
-                            })
-                        ) : <h4>لا يوجد تصنيفات</h4>
-                    ) : <Spinner animation="border" variant="primary" />
-
-                }
-
-            </Row>
-        </Container>
-    )
+  const colors = ["#FFD3E8", "#F4DBA5", "#55CFDF", "#FF6262", "#0034FF", "#FFD3E8"]
+  const [category, loading] = useCategoryList(1, 6);
+  return (
+    <Container>
+      <SubTiltle title="التصنيفات" btntitle="المزيد" pathText="/allcategory"/>
+      <Row className='my-2 d-flex justify-content-between'>
+        {
+          loading === false ? (
+            category.data ? (
+              category.data.slice(0, 5).map((item, index) => {
+                return (<CategoryCard key={index} title={item.name} img={item.image} background={colors[index]}/>)
+              })
+            ) : <h4>لا يوجد تصنيفات</h4>
+          ) : <Spinner animation="border" variant="primary"/>
+        }
+      </Row>
+    </Container>
+  )
 }
-
 export default HomeCategory

@@ -3,9 +3,9 @@ import {useDispatch, useSelector} from 'react-redux'
 import 'react-toastify/dist/ReactToastify.css';
 import notify from '../../../notifaction/hooks/useNotifaction'
 import avatar from '../../../../images/avatar.png'
-import {createCategory} from "../actions/categoryAction";
+import {createBrand} from "../actions/brandAction";
 
-const useAddCategory = () => {
+const useAddBrand = () => {
   const dispatch = useDispatch();
   const [img, setImg] = useState(avatar)
   const [name, setName] = useState('')
@@ -24,7 +24,7 @@ const useAddCategory = () => {
       setSelectedFile(event.target.files[0])
     }
   }
-  const res = useSelector(state => state.categoryReducer.category)
+  const res = useSelector(state => state.brandReducer.brand)
   //save data in database
   const handelSubmit = async (event) => {
     event.preventDefault();
@@ -37,7 +37,7 @@ const useAddCategory = () => {
     formData.append("image", selectedFile)
     setLoading(true)
     setIsPress(true)
-    await dispatch(createCategory(formData))
+    await dispatch(createBrand(formData))
     setLoading(false)
   }
   useEffect(() => {
@@ -56,4 +56,4 @@ const useAddCategory = () => {
   }, [loading])
   return [img, name, loading, isPress, handelSubmit, onImageChange, onChangeName]
 };
-export default useAddCategory
+export default useAddBrand

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row,Col } from 'react-bootstrap'
-import CartItem from '../Cart/CartItem'
+import CartItem from '../../features/cart/views/components/CartItem'
 
 const AdminOrderDetalis = () => {
     return (

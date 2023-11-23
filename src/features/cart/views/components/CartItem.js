@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col,Row } from 'react-bootstrap'
-import mobile from '../../images/mobile.png'
-import deleteicon from '../../images/delete.png'
+import mobile from '../../../../images/mobile.png'
+import deleteicon from '../../../../images/delete.png'
 const CartItem = () => {
     return (
         <Col xs="12" className="cart-item-body my-2 d-flex px-2">
