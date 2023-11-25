@@ -2,58 +2,62 @@ import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import 'react-toastify/dist/ReactToastify.css';
 import notify from '../../../notifaction/hooks/useNotifaction'
-import avatar from '../../../../images/avatar.png'
-import {createCategory} from "../actions/categoryAction";
+import {createSubcategory} from "../actions/subcategoryAction";
+import {getCategoryList} from "../../../category/manager/actions/categoryAction";
 
 const useAddSubcategory = () => {
   const dispatch = useDispatch();
-  const [img, setImg] = useState(avatar)
+  useEffect(() => {
+    dispatch(getCategoryList())
+  }, [])
+  const [category, setCategory] = useState('0')
   const [name, setName] = useState('')
-  const [selectedFile, setSelectedFile] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [isPress, setIsPress] = useState(false)
+  //get last categories state from redux
+  const categories = useSelector(state => state.categoryReducer.category)
+  //get last sub subcategory state from redux
+  const subcategory = useSelector(state => state.subcategoryReducer.subcategory)
   //to change name state
   const onChangeName = (event) => {
     event.persist();
     setName(event.target.value)
   }
   //when image change save it
-  const onImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      setImg(URL.createObjectURL(event.target.files[0]))
-      setSelectedFile(event.target.files[0])
-    }
-  }
-  const res = useSelector(state => state.categoryReducer.category)
+  const onChangeCategory = (event) => setCategory(event.target.value)
   //save data in database
   const handelSubmit = async (event) => {
     event.preventDefault();
-    if (name === "" || selectedFile === null) {
-      notify('من فضلك اكمل البيانات', "warn");
+   
+    if (category === "0") {
+      notify("من فضلك اختر تصنيف رئيسي", "warn")
       return;
     }
-    const formData = new FormData();
-    formData.append("name", name)
-    formData.append("image", selectedFile)
+    if (name === "") {
+      notify("من فضلك ادخل اسم التصنيف", "warn")
+      return;
+    }
     setLoading(true)
-    setIsPress(true)
-    await dispatch(createCategory(formData))
+    const data = {
+      category,
+      name,
+    }
+    await dispatch(createSubcategory(data))
     setLoading(false)
   }
   useEffect(() => {
     if (loading === false) {
-      setImg(avatar)
       setName("")
-      setSelectedFile(null)
-      setLoading(true)
-      setTimeout(() => setIsPress(false), 1000)
-      if (res.status === 201) {
+      setCategory(null)
+      if (subcategory.status === 201) {
         notify('تمت عملية الاضافة بنجاح', "success");
+      } else if (subcategory === "Error Error: Request failed with status code 400") {
+        notify("هذا الاسم مكرر من فضلك اختر اسم اخر", "warn")
       } else {
         notify('هناك مشكله فى عملية الاضافة', "error");
       }
+      setLoading(true)
     }
   }, [loading])
-  return [img, name, loading, isPress, handelSubmit, onImageChange, onChangeName]
+  return [category, name, loading, categories, subcategory, onChangeCategory, handelSubmit, onChangeName]
 };
 export default useAddSubcategory

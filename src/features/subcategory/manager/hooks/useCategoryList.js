@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux'
-import {getListCategory} from "../actions/categoryAction";
+import {getListCategory} from "../actions/subcategoryAction";
 
 const useCategoryList = (page, limit) => {
   const dispatch = useDispatch();

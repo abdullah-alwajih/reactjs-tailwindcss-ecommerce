@@ -45,13 +45,13 @@ const useAddCategory = () => {
       setImg(avatar)
       setName("")
       setSelectedFile(null)
-      setLoading(true)
       setTimeout(() => setIsPress(false), 1000)
       if (res.status === 201) {
         notify('تمت عملية الاضافة بنجاح', "success");
       } else {
         notify('هناك مشكله فى عملية الاضافة', "error");
       }
+      setLoading(true)
     }
   }, [loading])
   return [img, name, loading, isPress, handelSubmit, onImageChange, onChangeName]

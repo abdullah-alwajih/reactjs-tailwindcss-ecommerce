@@ -1,11 +1,10 @@
 import Remote from "../../../../core/data/source/remote";
 import ACTIONS_TYPES from "../../../../core/manager/actionsTypes";
+import notify from "../../../notifaction/hooks/useNotifaction";
 
 const _endpoint = '/api/v1/categories'
-
-
 //get all category
-export const getListCategory = (page, limit) => async (dispatch) => {
+export const getCategoryList = (page, limit) => async (dispatch) => {
   try {
     const response = await Remote.get(`${_endpoint}`, {page, limit});
     dispatch({
