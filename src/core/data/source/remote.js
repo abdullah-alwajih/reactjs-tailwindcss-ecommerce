@@ -1,5 +1,5 @@
 import axios from 'axios'
-import notify from "../../../features/notifaction/hooks/useNotifaction";
+import notify from "../../../features/notifaction/manager/hooks/useNotifaction";
 
 class Remote {
   static _http = axios.create({baseURL: "http://127.0.0.1:8000"})

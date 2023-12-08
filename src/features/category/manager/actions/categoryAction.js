@@ -1,6 +1,6 @@
 import Remote from "../../../../core/data/source/remote";
 import ACTIONS_TYPES from "../../../../core/manager/actionsTypes";
-import notify from "../../../notifaction/hooks/useNotifaction";
+import notify from "../../../notifaction/manager/hooks/useNotifaction";
 
 const _endpoint = '/api/v1/categories'
 //get all category

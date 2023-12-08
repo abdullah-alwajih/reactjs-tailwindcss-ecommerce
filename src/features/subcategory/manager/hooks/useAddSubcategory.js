@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import 'react-toastify/dist/ReactToastify.css';
-import notify from '../../../notifaction/hooks/useNotifaction'
+import notify from '../../../notifaction/manager/hooks/useNotifaction'
 import {createSubcategory} from "../actions/subcategoryAction";
 import {getCategoryList} from "../../../category/manager/actions/categoryAction";
 
