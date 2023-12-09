@@ -1,11 +1,21 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Col, Row} from 'react-bootstrap'
 import Multiselect from 'multiselect-react-dropdown';
 import add from '../../images/add.png'
 import MultiImageInput from "react-multiple-image-input";
+import {useDispatch, useSelector} from "react-redux";
+import {getCategoryList} from "../../features/category/manager/actions/categoryAction";
 
 const AdminAddProducts = () => {
   const [images, setImages] = useState([]);
+  
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCategoryList())
+  }, [])
+  
+  const categories = useSelector(state => state.categoryReducer.category)
+  
   const onSelect = () => {
   }
   const onRemove = () => {
@@ -29,7 +39,6 @@ const AdminAddProducts = () => {
             theme={"light"}
             max={4}
           />
-          );
           <input
             type="text"
             className="input-form d-block mt-3 px-3"
