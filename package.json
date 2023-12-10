@@ -42,7 +42,7 @@
     "react-multiple-image-input": "^1.0.0",
     "react-paginate": "^8.2.0",
     "react-rating-stars-component": "^2.2.0",
-    "react-redux": "^9.0.2",
+    "react-redux": "^9.0.3",
     "react-router-dom": "^6.20.1",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.3",
